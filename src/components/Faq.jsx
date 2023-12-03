@@ -32,6 +32,8 @@ const data = [
 ];
 
 const Faq = () => {
+  const isMobile = window.innerWidth < 768;
+
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleToggle = (index) => {
@@ -46,24 +48,29 @@ const Faq = () => {
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
 
+  if (isMobile) {
+    scaleProgress.set(1);
+    opacityProgress.set(1);
+  }
+
   return (
-    <div className="flex mt-32 flex-row w-4/5 justify-center items-center gap-16 ">
+    <div className="flex lg:mt-32 mt-10 flex-col lg:flex-row lg:w-4/5 w-11/12 justify-center items-center gap-16 ">
       <div
         id="faq"
-        className="flex bg-white justify-start items-start  flex-col  w-1/3 p-5  relative "
+        className="flex bg-white lg:justify-start lg:items-start justify-center items-center  flex-col  lg:w-1/3 w-11/12 lg:p-5  p-0 relative "
       >
-        <div className="text-blueButton border border-opacity-30 flex justify-start items-start border-blueButton w-24  bg-white px-2   font-semibold font-[inter] text-xl tracking-wider py-1 leading-5 rounded-lg">
+        <div className="text-blueButton border border-opacity-30 flex  lg:justify-start lg:items-start justify-center items-center  border-blueButton w-24  bg-white px-2   font-semibold font-[inter] text-xl tracking-wider py-1 leading-5 rounded-lg">
           🙋‍♀️ FAQ
         </div>
-        <h2 className="text-6xl font-semibold justify-start items-center text-start  tracking-tight font-[inter] text-backgroundBlack  mt-5">
+        <h2 className="lg:text-6xl text-3xl font-semibold  lg:justify-start lg:items-start justify-center items-center  lg:text-start text-center lg:px-0 px-32 tracking-tight font-[inter] text-backgroundBlack  mt-5">
           Need <span className="text-textColor"> Answer? </span>
         </h2>
-        <div className=" justify-start items-start text-start  text-xl font-medium text-descTextColor mt-4  ">
+        <div className="  lg:justify-start lg:items-start justify-center items-center  lg:text-start text-center lg:text-xl text-lg font-medium text-descTextColor mt-4  ">
           Check out our most commonly asked questions below to find the
           information you need.
         </div>
       </div>
-      <div className="p-5 w-3/5">
+      <div className="lg:p-5 p-0 lg:w-3/5 w-11/12">
         {data.map((question, index) => (
           <motion.div
             key={index}
@@ -75,7 +82,7 @@ const Faq = () => {
                 <div className="">
                   <h2
                     onClick={() => handleToggle(index)}
-                    className={`text-2xl font-bold tracking-normal  flex justify-start cursor-pointer ${
+                    className={`lg:text-2xl text-xl font-bold tracking-normal  flex justify-start cursor-pointer ${
                       openIndex === index ? "text-blueButton" : ""
                     }`}
                   >

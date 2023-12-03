@@ -1,5 +1,3 @@
-import React from "react";
-// import { Link } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 
 const Navlinks = () => {
@@ -39,7 +37,8 @@ const Navbar = () => {
         <div className=" w-44 h-12 ml-2">
           <img src="/logo.png" alt="logo image" />
         </div>
-        <div className="flex flex-row justify-between items-center gap-5 z-1">
+
+        <div className="lg:flex flex-row justify-between items-center gap-5 z-1 hidden">
           <Navlinks />
           <div className="  rounded-md px-5 py-2 text-bold font-semibold bg-[rgb(255,255,255)] text-lg ">
             <p className=" text-bold">Buy Template</p>

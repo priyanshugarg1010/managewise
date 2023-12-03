@@ -59,7 +59,7 @@ const testimonialsList = [
 
 const TestimonialCards = () => {
   return (
-    <div className="relative overflow-hidden testimonial">
+    <div className="relative overflow-hidden testimonial lg:w-full w-96">
       <div className="flex flex-row gap-5 mt-32  relative  w-[1300px] flex-nowrap	animate-infinite-slider ">
         {testimonialsList.map((testimonial, index) => (
           <div

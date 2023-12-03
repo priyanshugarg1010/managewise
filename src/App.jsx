@@ -1,4 +1,3 @@
-import React from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -7,10 +6,8 @@ import Home from "./components/Home";
 const App = () => {
   const Layout = () => {
     return (
-      <div className="app font-[inter]">
-        <div className="">
-          <Navbar />
-        </div>
+      <div className="app font-[inter] sm:min-w-[]  md:w-[px] lg:w-[100%] w-auto">
+        <Navbar />
         <Outlet />
         <Footer />
       </div>
@@ -30,11 +27,7 @@ const App = () => {
     },
   ]);
 
-  return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

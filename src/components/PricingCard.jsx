@@ -52,6 +52,7 @@ const mapFeature = (features) => {
 };
 
 const PricingCard = () => {
+  const isMobile = window.innerWidth < 768;
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -61,15 +62,20 @@ const PricingCard = () => {
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
 
+  if (isMobile) {
+    scaleProgress.set(1);
+    opacityProgress.set(1);
+  }
+
   return (
-    <div className="flex flex-row gap-5 mt-20 ">
+    <div className="flex sm:flex-row flex-col gap-5 mt-20 ">
       {subscriptionFeatures.map((subscriptionFeature, index) => (
         <motion.div
           ref={ref}
           style={{ scale: scaleProgress, opacity: opacityProgress }}
-          className={`rounded-3xl w-96 h-[450px] bg-[#ededfa] relative ${
+          className={`rounded-3xl lg:w-96 w-[340px] h-[450px] bg-[#ededfa] relative ${
             index === 1
-              ? "bg-backgroundBlack h-[480px] -mt-[30px]"
+              ? "bg-backgroundBlack h-[480px] lg:-mt-[30px]"
               : "bg-[#ededfa]"
           }`}
           key={index}
