@@ -68,12 +68,12 @@ const PricingCard = () => {
   }
 
   return (
-    <div className="flex sm:flex-row flex-col gap-5 mt-20 ">
+    <div className="flex lg:flex-row flex-col md:flex-col gap-5 mt-20 ">
       {subscriptionFeatures.map((subscriptionFeature, index) => (
         <motion.div
           ref={ref}
           style={{ scale: scaleProgress, opacity: opacityProgress }}
-          className={`rounded-3xl lg:w-96 w-[340px] h-[450px] bg-[#ededfa] relative ${
+          className={`rounded-3xl lg:w-96 w-[340px]  md:w-[600px]  h-[450px] bg-[#ededfa] relative ${
             index === 1
               ? "bg-backgroundBlack h-[480px] lg:-mt-[30px]"
               : "bg-[#ededfa]"

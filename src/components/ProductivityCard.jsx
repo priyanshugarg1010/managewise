@@ -38,12 +38,12 @@ const ProductivityCard = () => {
   }
 
   return (
-    <div className="flex sm:flex-row flex-col gap-10  ">
+    <div className="flex lg:flex-row md:flex-col  flex-col gap-10  md:justify-center  md:items-center">
       {productiveFeatures.map((productiveFeature, index) => (
         <motion.div
           ref={ref}
           style={{ scale: scaleProgress, opacity: opacityProgress }}
-          className="flex flex-col  w-[350px] lg:w-[370px] p-8 shadow-lg border-zinc-800 overflow-hidden h-96 bg-cardColor rounded-3xl justify-center items-center"
+          className="flex flex-col  w-[350px]  md:w-4/5  lg:w-[370px] p-8 shadow-lg border-zinc-800 overflow-hidden h-96 bg-cardColor rounded-3xl justify-center items-center"
           key={index}
         >
           <div className="flex justify-center items-center rounded-2xl w-16 h-16 bg-blueButton">
